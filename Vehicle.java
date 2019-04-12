@@ -1,12 +1,14 @@
-public abstract class Vehicle {
+
+public abstract class Vehicle implements Comparable<Vehicle>{
     private String brand;
     private String model;
-    private float price;
+    private Double price;
 
-    public Vehicle(String brand, String model , float price) {
+    public Vehicle(String brand, String model , Double price) {
         this.brand = brand;
         this.model = model;
         this.price = price;
+        
     }
     //Marca
     public void setBrand(String brand) {
@@ -29,7 +31,12 @@ public abstract class Vehicle {
         return model;
     }
     //Precio
-    public float getPrice() {
+    public Double getPrice() {
+        
         return price;
+    } 
+    @Override
+    public int compareTo(Vehicle automotive){
+        return automotive.getPrice().compareTo(getPrice());
     }
 }
